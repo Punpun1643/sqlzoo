@@ -1,0 +1,25 @@
+1.
+SELECT name FROM world
+  WHERE population >
+     (SELECT population FROM world
+      WHERE name='Russia')
+
+2.
+SELECT name FROM world
+  WHERE gdp/population >
+  (SELECT gdp/population FROM world 
+  WHERE name = 'United Kingdom')
+  AND continent = 'Europe'
+
+3.
+SELECT name, continent from world
+  WHERE continent in  
+  (SELECT continent from world 
+  WHERE name in ('Argentina', 'Australia'))
+
+4.
+SELECT name, population from world
+  WHERE population > (SELECT population from world 
+  WHERE name = 'United Kingdom')
+  AND population < (SELECT population from world
+  WHERE name = 'Germany')
